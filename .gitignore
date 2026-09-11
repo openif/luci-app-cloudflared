@@ -1,0 +1,22 @@
+# Compiled packages and build artifacts
+*.ipk
+*.tar.gz
+*.tar
+_build/
+bin/
+
+# Temporary and backup files
+*.bak
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local runtime testing logs
+*.log

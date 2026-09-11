@@ -1,0 +1,30 @@
+{
+	"luci-app-cloudflared": {
+		"description": "Grant access to Cloudflared configuration",
+		"read": {
+			"uci": [ "cloudflared" ],
+			"ubus": {
+				"service": [ "list" ],
+				"file": [ "read", "stat" ],
+				"luci": [ "setInitAction" ]
+			},
+			"file": {
+				"/etc/cloudflared/*": [ "read" ],
+				"/var/log/cloudflared.log": [ "read" ],
+				"/tmp/log/cloudflared.log": [ "read" ],
+				"/var/log/*": [ "read" ],
+				"/tmp/log/*": [ "read" ]
+			}
+		},
+		"write": {
+			"uci": [ "cloudflared" ],
+			"file": {
+				"/etc/cloudflared/*": [ "write" ],
+				"/var/log/cloudflared.log": [ "write" ],
+				"/tmp/log/cloudflared.log": [ "write" ],
+				"/usr/bin/cloudflared *": [ "exec" ],
+				"/etc/init.d/cloudflared *": [ "exec" ]
+			}
+		}
+	}
+}

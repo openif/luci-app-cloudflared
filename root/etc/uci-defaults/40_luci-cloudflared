@@ -1,0 +1,18 @@
+#!/bin/sh
+
+[ -f /etc/config/cloudflared ] || touch /etc/config/cloudflared
+
+uci -q get cloudflared.config >/dev/null || {
+    uci set cloudflared.config=cloudflared
+    uci set cloudflared.config.enabled='0'
+    uci set cloudflared.config.mode='token'
+    uci set cloudflared.config.token=''
+    uci set cloudflared.config.protocol='http2'
+    uci set cloudflared.config.loglevel='info'
+    uci set cloudflared.config.logfile='/var/log/cloudflared.log'
+    uci set cloudflared.config.config='/etc/cloudflared/config.yml'
+    uci set cloudflared.config.origincert='/etc/cloudflared/cert.pem'
+    uci commit cloudflared
+}
+
+exit 0

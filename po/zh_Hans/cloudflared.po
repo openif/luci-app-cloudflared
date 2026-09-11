@@ -1,0 +1,277 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-cloudflared 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-11 22:30+1200\n"
+"PO-Revision-Date: 2026-09-11 22:30+1200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Cloudflare Zero Trust Tunnel"
+msgstr "Cloudflare 零信任隧道"
+
+msgid "Configuration"
+msgstr "参数配置"
+
+msgid "Tunnels"
+msgstr "隧道状态"
+
+msgid "Log"
+msgstr "运行日志"
+
+msgid "Running"
+msgstr "运行中"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Starting"
+msgstr "正在启动"
+
+msgid "Stopping"
+msgstr "正在停止"
+
+msgid "Restarting"
+msgstr "正在重启"
+
+msgid "Operating"
+msgstr "正在操作"
+
+msgid "Cloudflare Tunnel"
+msgstr "Cloudflare 隧道"
+
+msgid "Service %s command issued successfully."
+msgstr "服务 %s 命令已成功下发。"
+
+msgid "Failed to execute command: "
+msgstr "执行命令失败: "
+
+msgid "Connecting..."
+msgstr "正在连接..."
+
+msgid "Service Status"
+msgstr "服务状态"
+
+msgid "Status"
+msgstr "运行状态"
+
+msgid "PID"
+msgstr "进程 ID"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Connected Edge"
+msgstr "已连接边缘节点"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Start"
+msgstr "启动"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Restart"
+msgstr "重启"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Operation Mode"
+msgstr "运行模式"
+
+msgid "Select the management mode. Cloud-managed Token mode is recommended for most setups."
+msgstr "选择管理模式。推荐使用云端托管的 Token 模式。"
+
+msgid "Token Mode (Cloud-Managed, Recommended)"
+msgstr "Token 模式 (云端托管，推荐)"
+
+msgid "Local Config Mode (Advanced)"
+msgstr "本地配置模式 (高级)"
+
+msgid "Tunnel Token"
+msgstr "隧道令牌 (Token)"
+
+msgid "Paste the tunnel token generated from Cloudflare Zero Trust (Networks > Tunnels)."
+msgstr "粘贴从 Cloudflare Zero Trust 控制台 (Networks > Tunnels) 获取的隧道令牌。"
+
+msgid "Tunnel Token is required when service is enabled in Token mode."
+msgstr "在 Token 模式下启用服务时必须填写隧道令牌。"
+
+msgid "Transport Protocol"
+msgstr "传输协议"
+
+msgid "Protocol used to connect to Cloudflare edge. HTTP/2 is recommended for highest stability against UDP filtering."
+msgstr "连接 Cloudflare 边缘节点使用的底层协议。推荐使用 HTTP/2 以保证最高连接稳定性。"
+
+msgid "HTTP/2 (TCP 443, Recommended)"
+msgstr "HTTP/2 (TCP 443，推荐)"
+
+msgid "Auto"
+msgstr "自动"
+
+msgid "QUIC (UDP 7844)"
+msgstr "QUIC (UDP 7844)"
+
+msgid "Log Level"
+msgstr "日志级别"
+
+msgid "Config File Path"
+msgstr "配置文件路径"
+
+msgid "Origin Certificate Path"
+msgstr "源证书路径"
+
+msgid "Cloudflare Zero Trust - Active Tunnels"
+msgstr "Cloudflare Zero Trust - 活动隧道"
+
+msgid "Overview of active Cloudflare Tunnels and connected edge locations."
+msgstr "概览当前运行的活动隧道及边缘节点连接详情。"
+
+msgid "Cloudflare Managed Tunnel (Token Mode)"
+msgstr "Cloudflare 托管隧道 (Token 模式)"
+
+msgid "Account ID"
+msgstr "账户 ID"
+
+msgid "Tunnel ID"
+msgstr "隧道 ID"
+
+msgid "Tunnel Status"
+msgstr "隧道状态"
+
+msgid "Registered Edge Connections"
+msgstr "已注册边缘节点连接"
+
+msgid "Connection"
+msgstr "连接编号"
+
+msgid "Edge Location"
+msgstr "边缘机房位置"
+
+msgid "Edge IP"
+msgstr "边缘 IP 地址"
+
+msgid "Protocol"
+msgstr "传输协议"
+
+msgid "No active edge connections detected in log."
+msgstr "日志中暂未检测到活动的边缘节点连接。"
+
+msgid "No local certificate or token configured."
+msgstr "尚未配置本地证书或 Token。"
+
+msgid "Tunnel ID / Name"
+msgstr "隧道 ID / 名称"
+
+msgid "Created At"
+msgstr "创建时间"
+
+msgid "Connections"
+msgstr "连接数"
+
+msgid "Active"
+msgstr "活动"
+
+msgid "Inactive"
+msgstr "未激活"
+
+msgid "No tunnels found in local account."
+msgstr "当前本地账户下未找到隧道。"
+
+msgid "No log data available."
+msgstr "暂无运行日志。"
+
+msgid "Unable to read log file: "
+msgstr "无法读取日志文件: "
+
+msgid "Lines"
+msgstr "行"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Are you sure you want to clear the runtime log file?"
+msgstr "确定要清空运行日志文件吗？"
+
+msgid "Log file cleared successfully."
+msgstr "日志文件已成功清空。"
+
+msgid "Failed to clear log: "
+msgstr "清空日志失败: "
+
+msgid "Clear Log"
+msgstr "清空日志"
+
+msgid "Log copied to clipboard!"
+msgstr "日志已复制到剪贴板！"
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Download Log"
+msgstr "下载日志"
+
+msgid "Cloudflare Tunnel - Runtime Log"
+msgstr "Cloudflare 隧道 - 运行日志"
+
+msgid "Display:"
+msgstr "显示行数:"
+
+msgid "Not Installed"
+msgstr "未安装"
+
+msgid "Cloudflare Zero Trust Dashboard (Cloud-Managed)"
+msgstr "Cloudflare Zero Trust 控制台 (云端托管)"
+
+msgid "Configured"
+msgstr "已配置"
+
+msgid "Data Center"
+msgstr "数据中心"
+
+msgid "Edge Connections"
+msgstr "边缘节点连接"
+
+msgid "Go to Configuration"
+msgstr "前往参数配置"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "In Token mode, all public hostnames, ingress rules, and zero-trust access policies are managed centrally in your Cloudflare dashboard."
+msgstr "在 Token 模式下，所有公网域名解析、Ingress 转发规则与零信任访问策略均在 Cloudflare 控制台统一管理。"
+
+msgid "Management Mode"
+msgstr "管理模式"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "No Tunnel Configured"
+msgstr "未配置隧道"
+
+msgid "No tunnel token has been configured yet. Please go to the Configuration tab, paste your Cloudflare Zero Trust Tunnel Token, and enable the service."
+msgstr "尚未配置隧道令牌。请前往「参数配置」页面，粘贴您的 Cloudflare Zero Trust 隧道令牌并启用服务。"
+
+msgid "Not Running"
+msgstr "未运行"
+
+msgid "Open Cloudflare Zero Trust Dashboard"
+msgstr "打开 Cloudflare Zero Trust 控制台"
+
+msgid "Tunnel Information (Token Mode)"
+msgstr "隧道信息 (Token 模式)"
+
+msgid "Tunnels Information"
+msgstr "隧道信息"
+
+msgid "Grant access to Cloudflared configuration"
+msgstr "授权访问 Cloudflared 配置"

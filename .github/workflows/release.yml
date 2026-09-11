@@ -1,0 +1,134 @@
+name: Build and Release IPK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build IPK Packages
+        run: |
+          PKG_NAME="luci-app-cloudflared"
+          I18N_PKG_NAME="luci-i18n-cloudflared-zh-cn"
+          TAG_VER="${GITHUB_REF_NAME#v}"
+          if [ -z "$TAG_VER" ] || [ "$TAG_VER" = "main" ]; then
+            TAG_VER="1.0.0"
+          fi
+          FULL_VER="${TAG_VER}-1"
+
+          # ----------------------------------------------------
+          # 1. Compile Translation (PO -> LMO)
+          # ----------------------------------------------------
+          mkdir -p build_i18n/data/usr/lib/lua/luci/i18n build_i18n/control
+          python3 scripts/po2lmo.py po/zh_Hans/cloudflared.po build_i18n/data/usr/lib/lua/luci/i18n/cloudflared.zh-cn.lmo
+
+          # ----------------------------------------------------
+          # 2. Build luci-app-cloudflared (Main application)
+          # ----------------------------------------------------
+          mkdir -p build_app/control build_app/data
+
+          # Copy root files
+          cp -r root/* build_app/data/
+
+          # Copy LuCI JS views
+          mkdir -p build_app/data/www/luci-static/resources/view/cloudflared
+          cp -r htdocs/luci-static/resources/view/cloudflared/*.js build_app/data/www/luci-static/resources/view/cloudflared/
+
+          # App Control file
+          cat << EOF > build_app/control/control
+Package: ${PKG_NAME}
+Version: ${FULL_VER}
+Depends: libc, cloudflared, luci-base
+Source: https://github.com/openif/luci-app-cloudflared
+SourceName: ${PKG_NAME}
+License: Apache-2.0
+Section: luci
+Maintainer: OpenIF <https://github.com/openif>
+Architecture: all
+Description: LuCI interface for Cloudflare Zero Trust Tunnels (cloudflared).
+EOF
+
+          # Postinst script
+          cat << 'EOF' > build_app/control/postinst
+#!/bin/sh
+[ "${IPKG_NO_SCRIPT}" = "1" ] && exit 0
+chmod +x /etc/init.d/cloudflared 2>/dev/null
+chmod +x /usr/libexec/rpcd/luci.cloudflared 2>/dev/null
+chmod +x /etc/uci-defaults/40_luci-cloudflared 2>/dev/null
+[ -f /etc/uci-defaults/40_luci-cloudflared ] && /bin/sh /etc/uci-defaults/40_luci-cloudflared && rm -f /etc/uci-defaults/40_luci-cloudflared
+/etc/init.d/rpcd restart 2>/dev/null
+exit 0
+EOF
+          chmod 0755 build_app/control/postinst
+
+          # Conffiles
+          echo "/etc/config/cloudflared" > build_app/control/conffiles
+
+          # Create app archives
+          tar -czf build_app/control.tar.gz -C build_app/control .
+          tar -czf build_app/data.tar.gz -C build_app/data .
+          echo "2.0" > build_app/debian-binary
+
+          APP_IPK="${PKG_NAME}_${FULL_VER}_all.ipk"
+          tar -czf "${APP_IPK}" -C build_app debian-binary data.tar.gz control.tar.gz
+
+          # ----------------------------------------------------
+          # 3. Build luci-i18n-cloudflared-zh-cn (Language pack)
+          # ----------------------------------------------------
+          cat << EOF > build_i18n/control/control
+Package: ${I18N_PKG_NAME}
+Version: ${FULL_VER}
+Depends: libc, ${PKG_NAME}
+Source: https://github.com/openif/luci-app-cloudflared
+SourceName: ${I18N_PKG_NAME}
+License: Apache-2.0
+Section: luci
+Maintainer: OpenIF <https://github.com/openif>
+Architecture: all
+Description: Translation for ${PKG_NAME} - Simplified Chinese
+EOF
+
+          cat << 'EOF' > build_i18n/control/postinst
+#!/bin/sh
+/etc/init.d/rpcd restart 2>/dev/null
+exit 0
+EOF
+          chmod 0755 build_i18n/control/postinst
+
+          # Create i18n archives
+          tar -czf build_i18n/control.tar.gz -C build_i18n/control .
+          tar -czf build_i18n/data.tar.gz -C build_i18n/data .
+          echo "2.0" > build_i18n/debian-binary
+
+          I18N_IPK="${I18N_PKG_NAME}_${FULL_VER}_all.ipk"
+          tar -czf "${I18N_IPK}" -C build_i18n debian-binary data.tar.gz control.tar.gz
+
+          echo "APP_IPK=${APP_IPK}" >> $GITHUB_ENV
+          echo "I18N_IPK=${I18N_IPK}" >> $GITHUB_ENV
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ipk-packages
+          path: |
+            ${{ env.APP_IPK }}
+            ${{ env.I18N_IPK }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            ${{ env.APP_IPK }}
+            ${{ env.I18N_IPK }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,277 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-cloudflared 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-11 22:30+1200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Cloudflare Zero Trust Tunnel"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Tunnels"
+msgstr ""
+
+msgid "Log"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Starting"
+msgstr ""
+
+msgid "Stopping"
+msgstr ""
+
+msgid "Restarting"
+msgstr ""
+
+msgid "Operating"
+msgstr ""
+
+msgid "Cloudflare Tunnel"
+msgstr ""
+
+msgid "Service %s command issued successfully."
+msgstr ""
+
+msgid "Failed to execute command: "
+msgstr ""
+
+msgid "Connecting..."
+msgstr ""
+
+msgid "Service Status"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "PID"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Connected Edge"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Operation Mode"
+msgstr ""
+
+msgid "Select the management mode. Cloud-managed Token mode is recommended for most setups."
+msgstr ""
+
+msgid "Token Mode (Cloud-Managed, Recommended)"
+msgstr ""
+
+msgid "Local Config Mode (Advanced)"
+msgstr ""
+
+msgid "Tunnel Token"
+msgstr ""
+
+msgid "Paste the tunnel token generated from Cloudflare Zero Trust (Networks > Tunnels)."
+msgstr ""
+
+msgid "Tunnel Token is required when service is enabled in Token mode."
+msgstr ""
+
+msgid "Transport Protocol"
+msgstr ""
+
+msgid "Protocol used to connect to Cloudflare edge. HTTP/2 is recommended for highest stability against UDP filtering."
+msgstr ""
+
+msgid "HTTP/2 (TCP 443, Recommended)"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "QUIC (UDP 7844)"
+msgstr ""
+
+msgid "Log Level"
+msgstr ""
+
+msgid "Config File Path"
+msgstr ""
+
+msgid "Origin Certificate Path"
+msgstr ""
+
+msgid "Cloudflare Zero Trust - Active Tunnels"
+msgstr ""
+
+msgid "Overview of active Cloudflare Tunnels and connected edge locations."
+msgstr ""
+
+msgid "Cloudflare Managed Tunnel (Token Mode)"
+msgstr ""
+
+msgid "Account ID"
+msgstr ""
+
+msgid "Tunnel ID"
+msgstr ""
+
+msgid "Tunnel Status"
+msgstr ""
+
+msgid "Registered Edge Connections"
+msgstr ""
+
+msgid "Connection"
+msgstr ""
+
+msgid "Edge Location"
+msgstr ""
+
+msgid "Edge IP"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+msgid "No active edge connections detected in log."
+msgstr ""
+
+msgid "No local certificate or token configured."
+msgstr ""
+
+msgid "Tunnel ID / Name"
+msgstr ""
+
+msgid "Created At"
+msgstr ""
+
+msgid "Connections"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "No tunnels found in local account."
+msgstr ""
+
+msgid "No log data available."
+msgstr ""
+
+msgid "Unable to read log file: "
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Are you sure you want to clear the runtime log file?"
+msgstr ""
+
+msgid "Log file cleared successfully."
+msgstr ""
+
+msgid "Failed to clear log: "
+msgstr ""
+
+msgid "Clear Log"
+msgstr ""
+
+msgid "Log copied to clipboard!"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Download Log"
+msgstr ""
+
+msgid "Cloudflare Tunnel - Runtime Log"
+msgstr ""
+
+msgid "Display:"
+msgstr ""
+
+msgid "Not Installed"
+msgstr ""
+
+msgid "Cloudflare Zero Trust Dashboard (Cloud-Managed)"
+msgstr ""
+
+msgid "Configured"
+msgstr ""
+
+msgid "Data Center"
+msgstr ""
+
+msgid "Edge Connections"
+msgstr ""
+
+msgid "Go to Configuration"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "In Token mode, all public hostnames, ingress rules, and zero-trust access policies are managed centrally in your Cloudflare dashboard."
+msgstr ""
+
+msgid "Management Mode"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No Tunnel Configured"
+msgstr ""
+
+msgid "No tunnel token has been configured yet. Please go to the Configuration tab, paste your Cloudflare Zero Trust Tunnel Token, and enable the service."
+msgstr ""
+
+msgid "Not Running"
+msgstr ""
+
+msgid "Open Cloudflare Zero Trust Dashboard"
+msgstr ""
+
+msgid "Tunnel Information (Token Mode)"
+msgstr ""
+
+msgid "Tunnels Information"
+msgstr ""
+
+msgid "Grant access to Cloudflared configuration"
+msgstr ""
